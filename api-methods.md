@@ -35,7 +35,7 @@ Example:
 		"description": "..."
 	}
 
-open311.incident.report
+open311.incidents.report
 --
 
 TBW.
@@ -45,22 +45,22 @@ _open311.incidents.status_ API method.
 
 Example:
 
-	POST example.com/api?method=open311.incident.getInfo&id=1
+	POST example.com/api?method=open311.incidents.getInfo&id=1
 
-open311.incident.getInfo
+open311.incidents.getInfo
 --
 
 TBW.
 
 Example:
 
-	GET example.com/api?method=open311.incident.getInfo&id=1
+	GET example.com/api?method=open311.incidents.getInfo&id=1
 
-open311.incident.search
+open311.incidents.search
 --
 
 TBW.
 
 Example:
 
-	GET example.com/api?method=open311.incident.getInfo&id=1
+	GET example.com/api?method=open311.incidents.getInfo&id=1

@@ -18,7 +18,7 @@ reports. A search my be scoped to an individual user; by geographic location; by
 service type or status; and so on.
 
 As such the API itself is short and simple, by design. Individual methods and
-their request/response parameters are discussed in detail elsewhere but the
+their request/response parameters are [discussed in detail elsewhere](https://github.com/straup/open311-simple/blob/master/api-methods.md) but the
 short version might look like this:
 
 * open311.services.getList
