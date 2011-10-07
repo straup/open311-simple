@@ -1,8 +1,14 @@
 Open 311 Simple
+==
+
+Introduction
 --
 
 This is a draft specification for a simplified Open 311 API. It is very much a
 work in progress. Comments, patches and (gentle) cluebats are encouraged.
+
+API
+--
 
 The Open 311 Simple API is designed to (3) things:
 
