@@ -6,7 +6,7 @@ TBW.
 API methods
 ==
 
-[API methods are defined in a separate document](https://github.com/straup/open311-simple/blob/master/api-methods.md)
+[API methods are defined in a separate document.](https://github.com/straup/open311-simple/blob/master/api-methods.md)
 
 API formats (responses)
 ==

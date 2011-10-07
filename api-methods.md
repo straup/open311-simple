@@ -1,6 +1,9 @@
 API methods
 ==
 
+_[This document compliments the general "API"
+documentation.](https://github.com/straup/open311-simple/blob/master/api.md)_
+
 There are two basic classes of API methods: _list_ methods and _info_
 methods. The former are meant return the minimum amount of data around a service
 or incident to allow a user to perform a discrete action; the latter return all
