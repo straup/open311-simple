@@ -16,3 +16,17 @@ The Open 311 Simple API is designed to (3) things:
 Additionally, it should be possible for individual users to search for incident
 reports. A search my be scoped to an individual user; by geographic location; by
 service type or status; and so on.
+
+As such the API itself is short and simple, by design. Individual methods and
+their request/response parameters are discussed in detail elsewhere but the
+short version might look like this:
+
+* open311.services.getList
+
+* open311.services.getInfo
+
+* open311.incidents.report
+
+* open311.incidents.status
+
+* open311.incidents.search
