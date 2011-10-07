@@ -27,6 +27,6 @@ short version might look like this:
 
 * open311.incidents.report
 
-* open311.incidents.status
+* open311.incidents.getInfo
 
 * open311.incidents.search
