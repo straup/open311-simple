@@ -63,6 +63,11 @@ For example:
 		]
 	}
 
+Incidents
+==
+
+TBW
+
 Dates
 ==
 
@@ -85,16 +90,8 @@ To Do
 
 * Finish documenting OAuth stuff.
 
-* Figure out how to encode example responses in [api-methods.json](https://github.com/straup/open311-simple/blob/master/api-methods.json)
-
 Questions:
 ==
-
-* Should media uploads be a core part of a "simple" API spec or left to the discretion of individual cities?
-
-* Should a user be allow to upload multiple media thingies (photos, videos, sound files) in a single API call to _incidents.report_ ?
-
-* Should a user be allow to append media thingies (or edit a report) after it has been submitted (see above inre: media) ?
 
 * Privacy concerns related to returning information about the user who reported
   an incident; should that information be returned at all?
