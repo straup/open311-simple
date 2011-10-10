@@ -1,0 +1,10 @@
+{
+	"total": 3,
+	"per_page": 100,
+	"page": 1,
+	"statuses": [
+		{ "id": 1, "name": "open" },
+		{ "id": 2, "name": "pending" },
+		{ "id": 3, "name": "closed" }
+	]
+}

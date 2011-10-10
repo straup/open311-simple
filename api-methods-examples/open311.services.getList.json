@@ -1,0 +1,10 @@
+{
+	"total": 3,
+	"per_page": 100,
+	"page": 1,
+	"services": [
+		{ "id": 1, "name": "..." },
+		{ "id": 2, "name": "..." },
+		{ "id": 3, "name": "..." }
+	]
+}

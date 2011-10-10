@@ -22,8 +22,16 @@ Returns a list of services for which incidents may be reported. The types of ser
 
 	GET http://example.gov/open311-simple/?method=open311.services.getList
 
-	TBW
-
+	{
+		"total": 3,
+		"per_page": 100,
+		"page": 1,
+		"services": [
+			{ "id": 1, "name": "..." },
+			{ "id": 2, "name": "..." },
+			{ "id": 3, "name": "..." }
+		]
+	}
 open311.services.getInfo
 --
 
@@ -42,8 +50,13 @@ Returns basic information (as included in the _open311.services.getList_ method)
 
 	GET http://example.gov/open311-simple/?method=open311.services.getInfo
 
-	TBW
-
+	{
+		"service": {
+			"id": 1,
+			"name": "...",
+			"description": "..."
+		}
+	}
 open311.incidents.getStatuses
 --
 
@@ -63,8 +76,16 @@ Return a list of valid statuses. The types of statuses and their meaning are lef
 
 	GET http://example.gov/open311-simple/?method=open311.incidents.getStatuses
 
-	TBW
-
+	{
+		"total": 3,
+		"per_page": 100,
+		"page": 1,
+		"statuses": [
+			{ "id": 1, "name": "open" },
+			{ "id": 2, "name": "pending" },
+			{ "id": 3, "name": "closed" }
+		]
+	}
 open311.incidents.report
 --
 
@@ -95,8 +116,14 @@ Report an incident for a given service. Returns a unique ID for the incident tha
 
 	POST http://example.gov/open311-simple/?method=open311.incidents.report
 
-	TBW
-
+	{
+		"incident": {
+			"id": 999,
+			"service_id": 2,
+			"status_id": 1,
+			"reported": "..."
+		}
+	}
 open311.incidents.getInfo
 --
 
@@ -121,8 +148,14 @@ open311.incidents.getInfo
 
 	GET http://example.gov/open311-simple/?method=open311.incidents.getInfo
 
-	TBW
-
+	{
+		"incident": {
+			"id": 999,
+			"service_id": 2,
+			"status_id": 1,
+			"reported": "..."
+		}
+	}
 open311.incidents.search
 --
 
@@ -156,5 +189,12 @@ Returns a list of incidents matching a search criteria as defined by the API req
 
 	GET http://example.gov/open311-simple/?method=open311.incidents.search
 
-	TBW
-
+	{
+		"total": 2,
+		"per_page": 100,
+		"page": 1,
+		"incidents": [
+			{ "id": 999, "service_id": 2, "status_id": 1, "reported": "..." },
+			{ "id": 23, "service_id": 3, "status_id": 1, "reported": "..." },
+		]
+	}

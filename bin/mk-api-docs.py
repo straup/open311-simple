@@ -17,6 +17,8 @@ if __name__ == '__main__':
     path = os.path.abspath(spec)
     root = os.path.dirname(path)
 
+    examples = os.path.join(root, 'api-methods-examples')
+
     fh = open(spec, 'r')
     data = json.load(fh)
 
@@ -100,7 +102,14 @@ if __name__ == '__main__':
         out.write("**Example**\n\n")
 
         out.write("\t%s http://example.gov/open311-simple/?method=%s\n\n" % (m['method'], m['name']))
-        out.write("\tTBW\n\n")
+
+        rsp = os.path.join(examples, "%s.json" % m['name'])
+
+        if os.path.exists(rsp):
+
+            fh = open(rsp, 'r')
+            for ln in fh.readlines():
+                out.write("\t%s" % ln)
 
     md = out.getvalue()
 

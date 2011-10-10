@@ -1,0 +1,9 @@
+{
+	"total": 2,
+	"per_page": 100,
+	"page": 1,
+	"incidents": [
+		{ "id": 999, "service_id": 2, "status_id": 1, "reported": "..." },
+		{ "id": 23, "service_id": 3, "status_id": 1, "reported": "..." },
+	]
+}

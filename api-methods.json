@@ -9,7 +9,7 @@
 			"requires_auth": 0,
 			"paginated": 1,
 			"method": "GET",
-			"example" : ""
+			"example" : "file://./api-methods-examples/open311.services.getList.json"
 		},
 		
 		{
@@ -22,7 +22,7 @@
 			"parameters": [
 				{ "name": "service_id", "description": "A valid service_id to get information about.", "required": 1 }
 			],
-			"example" : ""
+			"example" : "file://./api-methods-examples/open311.services.getInfo.json"
 		},
 
 		{
@@ -33,7 +33,7 @@
 			"paginated": 1,
 			"method": "GET",
 			"requires_auth": 0,
-			"example" : ""
+			"example" : "file://./api-methods-examples/open311.incidents.getStatuses.json"
 		},
 				
 		{
@@ -54,7 +54,7 @@
 				"All dates should be passed in using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.",
 				"All geographic data is expected to be using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection."
 			],
-			"example" : ""
+			"example" : "file://./api-methods-examples/open311.incidents.report.json"
 		},
 		
 		{
@@ -71,7 +71,7 @@
 				"All dates are recorded using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.",
 				"All geographic data is returned using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection."
 			],
-			"example" : ""
+			"example" : "file://./api-methods-examples/open311.incidents.getInfo"
 		},
 		
 		{
@@ -95,7 +95,7 @@
 				"All geographic data should be passed to the API using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.",
 				"Parameterless searches are not permitted. You must define at least one search criteria."
 			],
-			"example": ""
+			"example": "file://./api-methods-examples/open311.incidents.search.json"
 		}
 		
 	]
