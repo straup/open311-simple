@@ -8,20 +8,30 @@ open311.services.getList
 
 Returns a list of services for which incidents may be reported. The types of services and their meaning are left to the discretion of individual cities.
 
+**Method**
+
+[GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+
 **Parameters**
 
-* **page** - The page of results to return. If this argument is omitted, it defaults to 1..
+* **page** - The page of results to return. If this argument is omitted, it defaults to 1.
 * **per_page** - Number of results to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is left to the discretion of individual cities.
 * **format** - The encoding format for results. If this argument is omitted, it defaults to JSON
 
 **Example**
 
-_TBW_
+	GET http://example.gov/open311-simple/?method=open311.services.getList
+
+	_TBW_
 
 open311.services.getInfo
 --
 
 Returns basic information (as included in the _open311.services.getList_ method) as well any additional details that may be relevant to the service.
+
+**Method**
+
+[GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
 
 **Parameters**
 
@@ -30,22 +40,30 @@ Returns basic information (as included in the _open311.services.getList_ method)
 
 **Example**
 
-_TBW_
+	GET http://example.gov/open311-simple/?method=open311.services.getInfo
+
+	_TBW_
 
 open311.incidents.getStatuses
 --
 
 Return a list of valid statuses. The types of statuses and their meaning are left to the discretion of individual cities.
 
+**Method**
+
+[GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+
 **Parameters**
 
-* **page** - The page of results to return. If this argument is omitted, it defaults to 1..
+* **page** - The page of results to return. If this argument is omitted, it defaults to 1.
 * **per_page** - Number of results to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is left to the discretion of individual cities.
 * **format** - The encoding format for results. If this argument is omitted, it defaults to JSON
 
 **Example**
 
-_TBW_
+	GET http://example.gov/open311-simple/?method=open311.incidents.getStatuses
+
+	_TBW_
 
 open311.incidents.report
 --
@@ -54,26 +72,39 @@ open311.incidents.report
 
 Report an incident for a given service. Returns a unique ID for the incident that may be used to call the _open311.incidents.status_ API method.
 
+**Method**
+
+[POST](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+
 **Parameters**
 
 * **service\_id** - A valid service_id as defined by the city operating the Open 311 (Simple) API _required_
 * **latitude** - A valid WGS84 coordinate _required_
 * **longitude** - A valid WGS84 coordinate _required_
 * **notes** - A free-form text field in which the user reporting the incident may leave additional notes.
+* **photo** - A photograph documenting the reported incident
 * **format** - The encoding format for results. If this argument is omitted, it defaults to JSON
 
 **Notes**
+
+All dates should be passed in using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.
 
 All geographic data is expected to be using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
 
 **Example**
 
-_TBW_
+	POST http://example.gov/open311-simple/?method=open311.incidents.report
+
+	_TBW_
 
 open311.incidents.getInfo
 --
 
 
+
+**Method**
+
+[GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
 
 **Parameters**
 
@@ -82,24 +113,34 @@ open311.incidents.getInfo
 
 **Notes**
 
-All dates are recorded using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime).
+All dates are recorded using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.
 
 All geographic data is returned using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
 
 **Example**
 
-_TBW_
+	GET http://example.gov/open311-simple/?method=open311.incidents.getInfo
+
+	_TBW_
 
 open311.incidents.search
 --
 
 Returns a list of incidents matching a search criteria as defined by the API request.
 
+**Method**
+
+[GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+
 **Parameters**
 
-* **incident\_id** - TBW
-* **status\_id** - TBW
-* **page** - The page of results to return. If this argument is omitted, it defaults to 1..
+* **service\_id** - The unique ID of the service type to search for. Multiple services may be passed in as a comma-separated list.
+* **incident\_id** - The unique ID of the incident to search for. Multiple incidents may be passed in as a comma-separated list.
+* **status\_id** - The unique ID of a status type to search for. Multiple statuses may be passed in as a comma-separated list.
+* **created** - TBW, date ranges
+* **modified** - TBW, date ranges
+* **geo** - TBW, radial vs. bbox queries
+* **page** - The page of results to return. If this argument is omitted, it defaults to 1.
 * **per_page** - Number of results to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is left to the discretion of individual cities.
 * **format** - The encoding format for results. If this argument is omitted, it defaults to JSON
 
@@ -107,7 +148,11 @@ Returns a list of incidents matching a search criteria as defined by the API req
 
 All dates should be passed to the API (and returned in results) using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime).
 
+Parameterless searches are not permitted. You must define at least one search criteria.
+
 **Example**
 
-_TBW_
+	GET http://example.gov/open311-simple/?method=open311.incidents.search
+
+	_TBW_
 

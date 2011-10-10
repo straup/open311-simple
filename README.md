@@ -23,16 +23,7 @@ Additionally, it should be possible for individual users to search for incident
 reports. A search my be scoped to an individual user; by geographic location; by
 service type or status; and so on.
 
+That's it, really.
+
 As such the API itself is short and simple, by design. Individual methods and
-their request/response parameters are [discussed in detail elsewhere](https://github.com/straup/open311-simple/blob/master/api-methods.md) but the
-short version might look like this:
-
-* open311.services.getList
-
-* open311.services.getInfo
-
-* open311.incidents.report
-
-* open311.incidents.getInfo
-
-* open311.incidents.search
+their request/response parameters are [discussed in detail elsewhere](https://github.com/straup/open311-simple/blob/master/api.md).

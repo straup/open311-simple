@@ -46,6 +46,14 @@ if __name__ == '__main__':
         out.write("%s\n\n" % m['description'])
 
         """
+        method (HTTP)
+        """
+
+        out.write("**Method**\n\n")
+        
+        out.write("[%s](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)\n\n" % (m['method']))
+
+        """
         method parameters
         """
 
@@ -67,7 +75,7 @@ if __name__ == '__main__':
 
         if m.get('paginated', False):
 
-            out.write("* **page** - The page of results to return. If this argument is omitted, it defaults to 1..\n")
+            out.write("* **page** - The page of results to return. If this argument is omitted, it defaults to 1.\n")
             out.write("* **per_page** - Number of results to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is left to the discretion of individual cities.\n")
 
         out.write("* **format** - The encoding format for results. If this argument is omitted, it defaults to JSON\n")
@@ -89,7 +97,9 @@ if __name__ == '__main__':
         """
 
         out.write("**Example**\n\n")
-        out.write("_TBW_\n\n")
+
+        out.write("\t%s http://example.gov/open311-simple/?method=%s\n\n" % (m['method'], m['name']))
+        out.write("\t_TBW_\n\n")
 
     md = out.getvalue()
 
