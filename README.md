@@ -25,5 +25,4 @@ service type or status; and so on.
 
 That's it, really.
 
-As such the API itself is short and simple, by design. Individual methods and
-their request/response parameters are [discussed in detail elsewhere](https://github.com/straup/open311-simple/blob/master/api.md).
+As such the API itself is short and simple, by design. General notes and statements of bias are discussed in detail in the [api.md](https://github.com/straup/open311-simple/blob/master/api.md) document. Individual methods and their request/response parameters are covered in the [api-methods.md](https://github.com/straup/open311-simple/blob/master/api.md) document.
