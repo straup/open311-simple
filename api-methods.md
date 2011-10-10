@@ -1,3 +1,7 @@
+**THIS DOCUMENT HAS BEEN DEPRECATED AND WILL BE REMOVED SHORTLY**
+
+[api-methods.json](https://github.com/straup/open311-simple/blob/master/api-methods.json) is the new api-methods.md
+
 API methods
 ==
 
@@ -27,19 +31,28 @@ services and their meaning are left to the discretion of individual cities.
 
 Parameters:
 
-* **format** (optional)
+* **format** – A valid response format, as defined by individual cities. Default is JSON.
+
+* **page** – A valid page number 
+
+* **per_page** –
 
 Example:
 
-	GET example.com/api?method=open311.services.getList
+<pre><code>GET example.com/api?method=open311.services.getList
 
-	{
-	"services": [
-		{ "id": 1, "name": "...", "type": "..." },
-		{ "id": 2, "name": "...", "type": "..." },
-		{ "id": 3, "name": "...", "type": "..." }
-	]
-	}
+{
+    "total": 3,
+    "pages": 1,
+    "page": 1,
+    "services": [
+        { "id": 1, "name": "...", "type": "..." },
+        { "id": 2, "name": "...", "type": "..." },
+        { "id": 3, "name": "...", "type": "..." }
+        ]
+}
+</code></pre>
+
 
 open311.services.getInfo
 --
@@ -49,9 +62,9 @@ as well any additional details that may be relevant to the service.
 
 Parameters:
 
-* **id** (required)
+* **id** _required_
 
-* **format** (optional)
+* **format**
 
 Example:
 
