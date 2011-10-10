@@ -20,7 +20,7 @@
 			"requires_auth": 0,
 			"method": "GET",
 			"parameters": [
-				{ "name": "service_id", "description": "", "required": 1 }
+				{ "name": "service_id", "description": "A valid service_id to get information about.", "required": 1 }
 			],
 			"example" : ""
 		},
@@ -92,6 +92,7 @@
 			],
 			"notes": [
 				"All dates should be passed to the API (and returned in results) using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime).",
+				"All geographic data should be passed to the API using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.",
 				"Parameterless searches are not permitted. You must define at least one search criteria."
 			],
 			"example": ""

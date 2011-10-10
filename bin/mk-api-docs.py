@@ -8,7 +8,7 @@ import StringIO
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
-# TO DO: import py-markdown and generate other kinds of docs
+# TO DO: import py-markdown and generate other kinds of docs at the same time
 
 if __name__ == '__main__':
 
@@ -30,11 +30,11 @@ if __name__ == '__main__':
     for m in data['methods']:
 
         if not m['enabled']:
-            logging.info("%s is disabled, skipping" % m['name'])
+            logging.info("the '%s' method is disabled, skipping" % m['name'])
             continue
 
         if not m['documented']:
-            logging.info("%s is enabled but undocumented, skipping" % m['name'])
+            logging.info("the '%s' method is enabled but undocumented, skipping" % m['name'])
             continue
 
         out.write("%s\n" % m['name'])
@@ -65,11 +65,12 @@ if __name__ == '__main__':
 
                 # guh...
                 name = p['name'].replace("_", "\_")
+                desc = p['description'].replace("_", "\_")
                 
-                out.write("* **%s** - %s" % (name, p['description']))
+                out.write("* **%s** - %s" % (name, desc))
             
                 if p['required']:
-                    out.write(" _required_")
+                    out.write(" - _Required_")
 
                 out.write("\n")
 
@@ -90,7 +91,7 @@ if __name__ == '__main__':
             out.write("**Notes**\n\n")
             
             for n in m['notes']:
-                out.write("%s\n\n" % n)
+                out.write("* %s\n\n" % n)
 
         """
         example (need to work out how to squirt this into JSON...
@@ -99,7 +100,7 @@ if __name__ == '__main__':
         out.write("**Example**\n\n")
 
         out.write("\t%s http://example.gov/open311-simple/?method=%s\n\n" % (m['method'], m['name']))
-        out.write("\t_TBW_\n\n")
+        out.write("\tTBW\n\n")
 
     md = out.getvalue()
 

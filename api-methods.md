@@ -22,7 +22,7 @@ Returns a list of services for which incidents may be reported. The types of ser
 
 	GET http://example.gov/open311-simple/?method=open311.services.getList
 
-	_TBW_
+	TBW
 
 open311.services.getInfo
 --
@@ -35,14 +35,14 @@ Returns basic information (as included in the _open311.services.getList_ method)
 
 **Parameters**
 
-* **service\_id** -  _required_
+* **service\_id** - A valid service\_id to get information about. - _Required_
 * **format** - The encoding format for results. If this argument is omitted, it defaults to JSON
 
 **Example**
 
 	GET http://example.gov/open311-simple/?method=open311.services.getInfo
 
-	_TBW_
+	TBW
 
 open311.incidents.getStatuses
 --
@@ -63,7 +63,7 @@ Return a list of valid statuses. The types of statuses and their meaning are lef
 
 	GET http://example.gov/open311-simple/?method=open311.incidents.getStatuses
 
-	_TBW_
+	TBW
 
 open311.incidents.report
 --
@@ -78,24 +78,24 @@ Report an incident for a given service. Returns a unique ID for the incident tha
 
 **Parameters**
 
-* **service\_id** - A valid service_id as defined by the city operating the Open 311 (Simple) API _required_
-* **latitude** - A valid WGS84 coordinate _required_
-* **longitude** - A valid WGS84 coordinate _required_
+* **service\_id** - A valid service\_id as defined by the city operating the Open 311 (Simple) API - _Required_
+* **latitude** - A valid WGS84 coordinate - _Required_
+* **longitude** - A valid WGS84 coordinate - _Required_
 * **notes** - A free-form text field in which the user reporting the incident may leave additional notes.
 * **photo** - A photograph documenting the reported incident
 * **format** - The encoding format for results. If this argument is omitted, it defaults to JSON
 
 **Notes**
 
-All dates should be passed in using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.
+* All dates should be passed in using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.
 
-All geographic data is expected to be using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
+* All geographic data is expected to be using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
 
 **Example**
 
 	POST http://example.gov/open311-simple/?method=open311.incidents.report
 
-	_TBW_
+	TBW
 
 open311.incidents.getInfo
 --
@@ -108,20 +108,20 @@ open311.incidents.getInfo
 
 **Parameters**
 
-* **incident\_id** - The unique ID of the incident to get information about. _required_
+* **incident\_id** - The unique ID of the incident to get information about. - _Required_
 * **format** - The encoding format for results. If this argument is omitted, it defaults to JSON
 
 **Notes**
 
-All dates are recorded using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.
+* All dates are recorded using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.
 
-All geographic data is returned using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
+* All geographic data is returned using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
 
 **Example**
 
 	GET http://example.gov/open311-simple/?method=open311.incidents.getInfo
 
-	_TBW_
+	TBW
 
 open311.incidents.search
 --
@@ -146,13 +146,15 @@ Returns a list of incidents matching a search criteria as defined by the API req
 
 **Notes**
 
-All dates should be passed to the API (and returned in results) using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime).
+* All dates should be passed to the API (and returned in results) using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime).
 
-Parameterless searches are not permitted. You must define at least one search criteria.
+* All geographic data should be passed to the API using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
+
+* Parameterless searches are not permitted. You must define at least one search criteria.
 
 **Example**
 
 	GET http://example.gov/open311-simple/?method=open311.incidents.search
 
-	_TBW_
+	TBW
 
