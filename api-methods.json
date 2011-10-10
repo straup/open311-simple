@@ -7,6 +7,7 @@
 			"enabled": 1,
 			"documented": 1,
 			"requires_auth": 0,
+			"paginated": 1,
 			"example" : ""
 		},
 		
@@ -27,6 +28,7 @@
 			"description": "Return a list of valid statuses. The types of statuses and their meaning are left to the discretion of individual cities.",
 			"enabled": 1,
 			"documented": 1,
+			"paginated": 1,
 			"requires_auth": 0,
 			"example" : ""
 		},
@@ -71,6 +73,7 @@
 			"description": "Returns a list of incidents matching a search criteria as defined by the API request.",
 			"enabled": 1,
 			"documented": 1,
+			"paginated": 1,
 			"requires_auth": 0,
 			"parameters": [
 				{ "name": "incident_id", "description": "TBW", "required": 0 },
