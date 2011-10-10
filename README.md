@@ -10,7 +10,7 @@ work in progress. Comments, patches and (gentle) cluebats are encouraged.
 API
 --
 
-The Open 311 Simple API is designed to (3) things:
+The Open 311 Simple API is designed to do (3) things:
 
 * allow citizens to discover municipal services for which they can report an
   incident
