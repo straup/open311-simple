@@ -172,7 +172,7 @@ Returns a list of incidents matching a search criteria as defined by the API req
 * **status\_id** - The unique ID of a status type to search for. Multiple statuses may be passed in as a comma-separated list.
 * **created** - The date or date range (see [api.md](https://github.com/straup/open311-simple/blob/master/api.md) for details) of when an incident was reported.
 * **modified** - The date or date range (see [api.md](https://github.com/straup/open311-simple/blob/master/api.md) for details) of when an incident was last modified.
-* **geo** - TBW, radial vs. bbox queries
+* **where** - A geopgraphic location or extent (see [api.md]((https://github.com/straup/open311-simple/blob/master/api.md) for details) for details) in which to scope the query.
 * **page** - The page of results to return. If this argument is omitted, it defaults to 1.
 * **per_page** - Number of results to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is left to the discretion of individual cities.
 * **format** - The encoding format for results. If this argument is omitted, it defaults to JSON

@@ -106,11 +106,33 @@ Example values:
 
 * A single hour: 2010-05-26T21:00:00Z;2010-05-26T22:00:00Z.
 
-Geo
+Geo (and the "where" argument)
 ==
 
 All geographic data should be passed to (and returned from) the API using the
 [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
+
+The "where" argument
+--
+
+The "where" argument is used to wrap all geographic queries in a single
+interface. Argument values are prefixed with a human-readable string followed by
+a colon (":") followed a string representing a geographic location.
+
+The prefix is used by parsers to determine how the rest of a "where" string
+should be interpreted. For example:
+
+* Bounding box: ?where=bbox:37.788,-122.344,37.857,-122.256
+
+* Around a point: ?where=near:37.804376,-122.271180
+
+* In a geohash: ?where=geohash:9q9p1dhf7
+
+* In a zip code: ?where=zip:94612
+
+The single parameter removes possible conflicts or overlaps between other
+parameters, and introduces a flexible way to namespace "known" areas like zip
+codes, countries, etc. 
 
 Methods
 ==
