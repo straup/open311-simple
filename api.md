@@ -71,7 +71,7 @@ TBW.
 Tags
 --
 
-Adopt the [OpenStreetMap (OSM) standard for tagging](https://wiki.openstreetmap.org/wiki/Any_tags_you_like) and encourage users, where
+Tagging will follow the [OpenStreetMap (OSM) standard for tagging](https://wiki.openstreetmap.org/wiki/Any_tags_you_like) and encourage users, where
 applicable, to follow [the guidelines and naming conventions that the OSM
 community has developed](https://wiki.openstreetmap.org/wiki/Map_Features) and refined over time.
 
@@ -79,7 +79,7 @@ It has been proven to be both robust enough to be used to power the OSM map
 renderer and flexible enough to meet the needs of tinkerers and playful enough
 to encourage innovations no one even considered at the outset.
 
-_Whether or not the “k=” and “v=” is used preserve the separation of subject and
+_TBD: Whether or not the “k=” and “v=” is used preserve the separation of subject and
 value in two separate fields that can be indexed and searched independently._
 
 Tags (and namespaces)
@@ -106,7 +106,7 @@ Example values:
 
 * A single hour: 2010-05-26T21:00:00Z;2010-05-26T22:00:00Z.
 
-Geo (and the "where" argument)
+Geo
 ==
 
 All geographic data should be passed to (and returned from) the API using the
@@ -115,7 +115,7 @@ All geographic data should be passed to (and returned from) the API using the
 The "where" argument
 --
 
-The "where" argument is used to wrap all geographic queries in a single
+The "where" argument (used by the _open311.incidents.search_ method) wraps all geographic queries in a single
 interface. Argument values are prefixed with a human-readable string followed by
 a colon (":") followed a string representing a geographic location.
 
@@ -131,8 +131,9 @@ should be interpreted. For example:
 * In a zip code: ?where=zip:94612
 
 The single parameter removes possible conflicts or overlaps between other
-parameters, and introduces a flexible way to namespace "known" areas like zip
-codes, countries, etc. 
+parameters, and introduces an extensible way to namespace "known" areas like zip
+codes, countries and allow individual cities to introduce place types specific
+to their jurisdiction.
 
 Methods
 ==
