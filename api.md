@@ -66,17 +66,51 @@ For example:
 Incidents
 ==
 
+TBW.
+
+Tags
+--
+
+Adopt the [OpenStreetMap (OSM) standard for tagging](https://wiki.openstreetmap.org/wiki/Any_tags_you_like) and encourage users, where
+applicable, to follow [the guidelines and naming conventions that the OSM
+community has developed](https://wiki.openstreetmap.org/wiki/Map_Features) and refined over time.
+
+It has been proven to be both robust enough to be used to power the OSM map
+renderer and flexible enough to meet the needs of tinkerers and playful enough
+to encourage innovations no one even considered at the outset.
+
+_Whether or not the “k=” and “v=” is used preserve the separation of subject and
+value in two separate fields that can be indexed and searched independently._
+
+Tags (and namespaces)
+--
+
 TBW
 
 Dates
 ==
 
-All dates are recorded using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime).
+All dates are recorded using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime). 
 
-Date Ranges
+All dates are passed a single-value reference to a date or date range, replacing
+convential "start" and "stop" prefixes for the various date arguments.
+
+Because the "-" and ":" characters are used by the W3C DateTime format date
+ranges are separated using a semicolon (;) character.
+
+Example values:
+
+* A single, full day: 2010-05-26.
+
+* A full week: 2010-05-23;2010-05-29.
+
+* A single hour: 2010-05-26T21:00:00Z;2010-05-26T22:00:00Z.
+
+Geo
 ==
 
-TBW.
+All geographic data should be passed to (and returned from) the API using the
+[WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
 
 Methods
 ==

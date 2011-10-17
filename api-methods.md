@@ -170,8 +170,8 @@ Returns a list of incidents matching a search criteria as defined by the API req
 * **service\_id** - The unique ID of the service type to search for. Multiple services may be passed in as a comma-separated list.
 * **incident\_id** - The unique ID of the incident to search for. Multiple incidents may be passed in as a comma-separated list.
 * **status\_id** - The unique ID of a status type to search for. Multiple statuses may be passed in as a comma-separated list.
-* **created** - TBW, date ranges
-* **modified** - TBW, date ranges
+* **created** - The date or date range (see [api.md](https://github.com/straup/open311-simple/blob/master/api.md) for details) of when an incident was reported.
+* **modified** - The date or date range (see [api.md](https://github.com/straup/open311-simple/blob/master/api.md) for details) of when an incident was last modified.
 * **geo** - TBW, radial vs. bbox queries
 * **page** - The page of results to return. If this argument is omitted, it defaults to 1.
 * **per_page** - Number of results to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is left to the discretion of individual cities.
@@ -182,6 +182,8 @@ Returns a list of incidents matching a search criteria as defined by the API req
 * All dates should be passed to the API (and returned in results) using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime).
 
 * All geographic data should be passed to the API using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
+
+* If called with a valid OAuth token and signature then the query will be scoped to the user associated with that token.
 
 * Parameterless searches are not permitted. You must define at least one search criteria.
 
