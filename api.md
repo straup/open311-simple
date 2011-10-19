@@ -24,11 +24,6 @@ Successful API methods are returned using HTTP responses in the 200 range. All o
 
 _The emphasis here is that, as much as possible, the API may be explored and tested by as many people as possible using nothing more complicated that a web browser._
 
-Authentication
-==
-
-All API authentication will be performed using [OAuth2](http://oauth.net/2/).
-
 Response formats
 ==
 
@@ -162,20 +157,14 @@ to their jurisdiction (for example: housing lots or building identifiers).
 
 **All Open311 Simple providers MUST implement the "bbox:" prefix to allow for geographic queries within a bounding box.** All other prefixes are left to the discretion (and technical infrastructure) of individual cities. API clients may request a list of supported prefixed using the _open311.where.getList_ API method.
 
-To Do
+Authentication
 ==
 
-* Finish documenting all API parameters
+Not all cities require that incident reports be filed with an associated user (or account) ID. Those that don't really should in order that both cities and individual contributors may review and audit incident reports. Requiring user accounts introduces an extra burden on both cities and users. For cities it means maintaining an additional database of user accounts and for users it means an extra sign-up process and another password to remember. This problem can by and large be mitigated by using one or more social web services are a single-sign-on (or validation) service. Both Facebook and Twitter are happy to perform this role for third-parties and have well-developed and widely adopted platforms for implementing this scenario.
 
-* Finish documenting OAuth stuff.
+The Open311 Simple specification dictates that all API methods that require authentication use the [OAuth2](http://oauth.net/2/) delegated authentication standard. Additionally it should be possible for an individual user to scope a query (using the _open311.incidents.search_ API method) an Open311 Simple dataset to themselves by passing a valid OAuth 2 token and signature with their request.
 
 Questions:
 ==
 
-* Privacy concerns related to returning information about the user who reported
-  an incident; should that information be returned at all?
-
-* Should there be a separate 'getIncidents' API method to return individual
-  reports for a user (as identified by an OAuth token) or should the definition
-  for the _search_ API method include to search for reports by user ID (see
-  above) ?
+* Should there be a _open311.incidents.getHistory_ API method to return the comments and progress, over time, for an incident report ?
