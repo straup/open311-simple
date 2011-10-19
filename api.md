@@ -106,11 +106,9 @@ That's it. Any additional properties passed back in an incident response are lef
 
 * **description** - Any addition descriptive text that the user who reported the incident may have included with the initial report.
 
-For the time being, whether or not the a reference to the individual user reporting an incident is included in an incident report is left to the discretion of individual cities. Trying to reconcile the privacy requirements, and technical implimentations to support them, across multiple jurisdictions is outside the scope of this document.
+_For the time being, whether or not the a reference to the individual user reporting an incident is included in an incident report is left to the discretion of individual cities. Trying to reconcile the privacy requirements, and technical implimentations to support them, across multiple jurisdictions is outside the scope of this document._
 
-Non-standard properties should, wherever applicable, adopt the [OpenStreetMap (OSM) standard for tagging](https://wiki.openstreetmap.org/wiki/Any_tags_you_like) and encourage users to follow [the guidelines and naming conventions that the OSM community has developed](https://wiki.openstreetmap.org/wiki/Map_Features) and refined over time.
-
-This model has been proven to be both robust enough to be used to power the OSM map renderer and flexible enough to meet the needs of tinkerers and playful enough to encourage innovations no one even considered at the outset.
+Non-standard properties should, wherever applicable, adopt the [OpenStreetMap (OSM) standard for tagging](https://wiki.openstreetmap.org/wiki/Any_tags_you_like) and encourage users to follow [the guidelines and naming conventions that the OSM community has developed](https://wiki.openstreetmap.org/wiki/Map_Features) and refined over time. This model has been proven to be both robust enough to be used to power the OSM map renderer and flexible enough to meet the needs of tinkerers and playful enough to encourage innovations no one even considered at the outset.
 
 Dates
 ==
