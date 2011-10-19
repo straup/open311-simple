@@ -13,7 +13,7 @@ The API method specification is defined as a JSON data structure containing basi
 
 Developers are still required to implement their own dispatching system in order to serve and process those API methods. The modeling of the API specification in JSON is simply meant as a language-agnostic configuration file that can be easily shared across programming languages (since they basically all have JSON decoders to translate the data in to native data structures).
 
-[API methods are defined in [api-methods.json](https://github.com/straup/open311-simple/blob/master/api-methods.json) document.
+API methods are defined in [api-methods.json](https://github.com/straup/open311-simple/blob/master/api-methods.json) document.
 
 Transport
 ==
@@ -119,7 +119,7 @@ Geo
 ==
 
 All geographic data should be passed to (and returned from) the API using the
-unprojected [WGS84](http://spatialreference.org/ref/epsg/4326/) datum. The phrase "unprojected WGS84 data" can be roughly translated as: Plain-old latitude and longitude the way those of us who don't study GIS think about things.
+unprojected [WGS84](http://spatialreference.org/ref/epsg/4326/) datum. The phrase "unprojected WGS84 data" can be roughly translated as: _Plain-old latitude and longitude, the way those of us who don't study GIS think about things._
 
 Geographic coordinates are expressed as latitude followed by longitude. Bounding boxes are expressed as a set of coordinates representing the South-West and North-East edges of the container.
 
@@ -146,7 +146,7 @@ parameters, and introduces an extensible way to namespace "known" areas like zip
 codes, countries and allow individual cities to introduce place types specific
 to their jurisdiction (for example: housing lots or building identifiers).
 
-*In the interest of interoperability all Open311 Simple providers MUST implement the "bbox:" prefix to allow for geographic queries within a bounding box.* All other prefixes are left to the discretion (and technical infrastructure) of individual cities. API clients may request a list of supported prefixed using the _open311.where.getList_ API method.
+**All Open311 Simple providers MUST implement the "bbox:" prefix to allow for geographic queries within a bounding box.** All other prefixes are left to the discretion (and technical infrastructure) of individual cities. API clients may request a list of supported prefixed using the _open311.where.getList_ API method.
 
 To Do
 ==
