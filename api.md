@@ -128,13 +128,13 @@ a colon (":") followed a string representing a geographic location.
 The prefix is used by parsers to determine how the rest of a "where" string
 should be interpreted. For example:
 
-* Bounding box: ?where=*bbox:*37.788,-122.344,37.857,-122.256
+* Bounding box: ?where=bbox:37.788,-122.344,37.857,-122.256
 
-* Around a point: ?where=*near:*37.804376,-122.271180
+* Around a point: ?where=near:37.804376,-122.271180
 
-* In a geohash: ?where=*geohash:*9q9p1dhf7
+* In a geohash: ?where=geohash:9q9p1dhf7
 
-* In a zip code: ?where=*zip:*94612
+* In a zip code: ?where=zip:94612
 
 The single parameter removes possible conflicts or overlaps between other
 parameters, and introduces an extensible way to namespace "known" areas like zip
