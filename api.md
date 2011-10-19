@@ -77,8 +77,19 @@ Incidents
 
 TBW.
 
+	{
+		"id": 999,
+		"service_id": 2,
+		"status_id": 1,
+		"created": "2011-03-15T23:22:45Z",
+		"modified": "2011-03-16T10:17:33Z",
+		"latitude": 37.23,
+		"longitude": -122.45,
+		"description": "..."
+	}
+
 Tags
---
+==
 
 Tagging will follow the [OpenStreetMap (OSM) standard for tagging](https://wiki.openstreetmap.org/wiki/Any_tags_you_like) and encourage users, where
 applicable, to follow [the guidelines and naming conventions that the OSM

@@ -85,8 +85,7 @@ Report an incident for a given service. Returns a unique ID for the incident tha
 * **service\_id** - A valid service\_id as defined by the city operating the Open 311 (Simple) API - _Required_
 * **latitude** - A valid WGS84 coordinate - _Required_
 * **longitude** - A valid WGS84 coordinate - _Required_
-* **notes** - A free-form text field in which the user reporting the incident may leave additional notes.
-* **photo** - A photograph documenting the reported incident
+* **description** - A free-form text field in which the user reporting the incident may leave additional notes.
 * **format** - The encoding format for results. If this argument is omitted, it defaults to JSON
 
 **Notes**

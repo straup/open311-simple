@@ -50,8 +50,7 @@
 				{ "name": "service_id", "description": "A valid service_id as defined by the city operating the Open 311 (Simple) API", "required": 1 },
 				{ "name": "latitude", "description": "A valid WGS84 coordinate", "required": 1 },
 				{ "name": "longitude", "description": "A valid WGS84 coordinate", "required": 1 },
-				{ "name": "notes", "description": "A free-form text field in which the user reporting the incident may leave additional notes.", "required": 0},
-				{ "name": "photo", "description": "A photograph documenting the reported incident", "required": 0}
+				{ "name": "description", "description": "A free-form text field in which the user reporting the incident may leave additional notes.", "required": 0}
 			],
 			"notes": [
 				"All dates should be passed in using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.",
@@ -107,7 +106,7 @@
 			"requires_auth": 0,
 			"paginated": 1,
 			"method": "GET",
-			"example" : ""
+			"example" : "file://./api-methods-examples/open311.where.getList.json"
 		}
 		
 	}
