@@ -6,6 +6,15 @@ methods. The former are meant return the minimum amount of data around a service
 or incident to allow a user to perform a discrete action; the latter return all
 the information available for a service or incident.
 
+Specification
+==
+
+The API method specification is defined as a JSON data structure containing basic metadata about each individual method such that it can be used by actual running code to delegate API requests and generate documentation.
+
+Developers are still required to implement their own dispatching system in order to serve and process those API methods. The modeling of the API specification in JSON is simply meant as a language-agnostic configuration file that can be easily shared across programming languages (since they basically all have JSON decoders to translate the data in to native data structures).
+
+[API methods are defined in [api-methods.json](https://github.com/straup/open311-simple/blob/master/api-methods.json) document.
+
 Transport
 ==
 
@@ -110,7 +119,9 @@ Geo
 ==
 
 All geographic data should be passed to (and returned from) the API using the
-[WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
+unprojected [WGS84](http://spatialreference.org/ref/epsg/4326/) datum. The phrase "unprojected WGS84 data" can be roughly translated as: Plain-old latitude and longitude the way those of us who don't study GIS think about things.
+
+Geographic coordinates are expressed as latitude followed by longitude. Bounding boxes are expressed as a set of coordinates representing the South-West and North-East edges of the container.
 
 The "where" argument
 --
@@ -122,23 +133,20 @@ a colon (":") followed a string representing a geographic location.
 The prefix is used by parsers to determine how the rest of a "where" string
 should be interpreted. For example:
 
-* Bounding box: ?where=bbox:37.788,-122.344,37.857,-122.256
+* Bounding box: ?where=*bbox:*37.788,-122.344,37.857,-122.256
 
-* Around a point: ?where=near:37.804376,-122.271180
+* Around a point: ?where=*near:*37.804376,-122.271180
 
-* In a geohash: ?where=geohash:9q9p1dhf7
+* In a geohash: ?where=*geohash:*9q9p1dhf7
 
-* In a zip code: ?where=zip:94612
+* In a zip code: ?where=*zip:*94612
 
 The single parameter removes possible conflicts or overlaps between other
 parameters, and introduces an extensible way to namespace "known" areas like zip
 codes, countries and allow individual cities to introduce place types specific
-to their jurisdiction.
+to their jurisdiction (for example: housing lots or building identifiers).
 
-Methods
-==
-
-[API methods are defined in a separate document.](https://github.com/straup/open311-simple/blob/master/api-methods.json)
+*In the interest of interoperability all Open311 Simple providers MUST implement the "bbox:" prefix to allow for geographic queries within a bounding box.* All other prefixes are left to the discretion (and technical infrastructure) of individual cities. API clients may request a list of supported prefixed using the _open311.where.getList_ API method.
 
 To Do
 ==

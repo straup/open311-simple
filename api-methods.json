@@ -1,4 +1,11 @@
 {
+
+	"default_format": "json",
+
+	"formats": [
+		"json"
+	],
+
 	"methods": {
 	
 		"open311.services.getList": {
@@ -48,7 +55,7 @@
 			],
 			"notes": [
 				"All dates should be passed in using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.",
-				"All geographic data is expected to be using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection."
+				"All geographic data is expected to be using the unprojected [WGS84](http://spatialreference.org/ref/epsg/4326/) datum (read: plain old latitudes and longitudes)."
 			],
 			"example" : "file://./api-methods-examples/open311.incidents.report.json"
 		},
@@ -64,7 +71,7 @@
 			],
 			"notes": [
 				"All dates are recorded using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.",
-				"All geographic data is returned using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection."
+				"All geographic data is returned using the unprojected [WGS84](http://spatialreference.org/ref/epsg/4326/) datum (read: plain old latitudes and longitudes)."
 			],
 			"example" : "file://./api-methods-examples/open311.incidents.getInfo"
 		},
@@ -86,11 +93,21 @@
 			],
 			"notes": [
 				"All dates should be passed to the API (and returned in results) using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime).",
-				"All geographic data should be passed to the API using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.",
+				"All geographic data should be passed to the API using the unprojected [WGS84](http://spatialreference.org/ref/epsg/4326/) datum (read: plain old latitudes and longitudes).",
 				"If called with a valid OAuth token and signature then the query will be scoped to the user associated with that token.",
 				"Parameterless searches are not permitted. You must define at least one search criteria."
 			],
 			"example": "file://./api-methods-examples/open311.incidents.search.json"
+		},
+
+		"open311.where.getList": {
+			"description": "Returns a list of geographic prefixes that may be used to query for incident reports using the 'open311.incidents.search' API method.",
+			"enabled": 1,
+			"documented": 1,
+			"requires_auth": 0,
+			"paginated": 1,
+			"method": "GET",
+			"example" : ""
 		}
 		
 	}

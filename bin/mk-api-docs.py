@@ -79,11 +79,11 @@ if __name__ == '__main__':
         out.write("%s\n" % class_name)
         out.write("==\n\n")
 
-        for method_fq in class_methods:
+        for fq_method in class_methods:
 
-            details = spec['methods'][method_fq]
+            details = spec['methods'][fq_method]
 
-            out.write("%s\n" % method_fq)
+            out.write("%s\n" % fq_method)
             out.write("--\n\n")
 
             if details['requires_auth']:

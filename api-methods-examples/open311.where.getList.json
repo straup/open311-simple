@@ -1,0 +1,10 @@
+{
+	"total": 3,
+	"per_page": 100,
+	"page": 1,
+	"services": [
+		{ "prefix": "bbox", "description": "...", "example": "bbox:37.788,-122.344,37.857,-122.256" },
+		{ "prefix": "near", "description": "...", "example": "near:37.804376,-122.271180" },
+		{ "prefix": "zip", "description": "...", "example": "zip:94110" }
+	]
+}

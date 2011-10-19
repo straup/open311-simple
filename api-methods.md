@@ -24,21 +24,19 @@ open311.incidents.getInfo
 
 * All dates are recorded using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.
 
-* All geographic data is returned using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
+* All geographic data is returned using the unprojected [WGS84](http://spatialreference.org/ref/epsg/4326/) datum (read: plain old latitudes and longitudes).
 
 **Example**
 
-	GET http://example.gov/open311-simple/?method=open311.services.getList
+	GET http://example.gov/open311-simple/?method=open311.incidents.getInfo
 
 	{
-		"total": 3,
-		"per_page": 100,
-		"page": 1,
-		"services": [
-			{ "id": 1, "name": "..." },
-			{ "id": 2, "name": "..." },
-			{ "id": 3, "name": "..." }
-		]
+		"incident": {
+			"id": 999,
+			"service_id": 2,
+			"status_id": 1,
+			"reported": "..."
+		}
 	}
 
 open311.incidents.getStatuses
@@ -58,16 +56,16 @@ Return a list of valid statuses. The types of statuses and their meaning are lef
 
 **Example**
 
-	GET http://example.gov/open311-simple/?method=open311.services.getList
+	GET http://example.gov/open311-simple/?method=open311.incidents.getStatuses
 
 	{
 		"total": 3,
 		"per_page": 100,
 		"page": 1,
-		"services": [
-			{ "id": 1, "name": "..." },
-			{ "id": 2, "name": "..." },
-			{ "id": 3, "name": "..." }
+		"statuses": [
+			{ "id": 1, "name": "open" },
+			{ "id": 2, "name": "pending" },
+			{ "id": 3, "name": "closed" }
 		]
 	}
 
@@ -95,21 +93,19 @@ Report an incident for a given service. Returns a unique ID for the incident tha
 
 * All dates should be passed in using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime) format.
 
-* All geographic data is expected to be using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
+* All geographic data is expected to be using the unprojected [WGS84](http://spatialreference.org/ref/epsg/4326/) datum (read: plain old latitudes and longitudes).
 
 **Example**
 
-	POST http://example.gov/open311-simple/?method=open311.services.getList
+	POST http://example.gov/open311-simple/?method=open311.incidents.report
 
 	{
-		"total": 3,
-		"per_page": 100,
-		"page": 1,
-		"services": [
-			{ "id": 1, "name": "..." },
-			{ "id": 2, "name": "..." },
-			{ "id": 3, "name": "..." }
-		]
+		"incident": {
+			"id": 999,
+			"service_id": 2,
+			"status_id": 1,
+			"reported": "..."
+		}
 	}
 
 open311.incidents.search
@@ -137,7 +133,7 @@ Returns a list of incidents matching a search criteria as defined by the API req
 
 * All dates should be passed to the API (and returned in results) using the [W3C DateTime format](http://www.w3.org/TR/NOTE-datetime).
 
-* All geographic data should be passed to the API using the [WGS84](http://spatialreference.org/ref/epsg/4326/) projection.
+* All geographic data should be passed to the API using the unprojected [WGS84](http://spatialreference.org/ref/epsg/4326/) datum (read: plain old latitudes and longitudes).
 
 * If called with a valid OAuth token and signature then the query will be scoped to the user associated with that token.
 
@@ -145,16 +141,15 @@ Returns a list of incidents matching a search criteria as defined by the API req
 
 **Example**
 
-	GET http://example.gov/open311-simple/?method=open311.services.getList
+	GET http://example.gov/open311-simple/?method=open311.incidents.search
 
 	{
-		"total": 3,
+		"total": 2,
 		"per_page": 100,
 		"page": 1,
-		"services": [
-			{ "id": 1, "name": "..." },
-			{ "id": 2, "name": "..." },
-			{ "id": 3, "name": "..." }
+		"incidents": [
+			{ "id": 999, "service_id": 2, "status_id": 1, "reported": "..." },
+			{ "id": 23, "service_id": 3, "status_id": 1, "reported": "..." },
 		]
 	}
 
@@ -177,17 +172,14 @@ Returns basic information (as included in the _open311.services.getList_ method)
 
 **Example**
 
-	GET http://example.gov/open311-simple/?method=open311.services.getList
+	GET http://example.gov/open311-simple/?method=open311.services.getInfo
 
 	{
-		"total": 3,
-		"per_page": 100,
-		"page": 1,
-		"services": [
-			{ "id": 1, "name": "..." },
-			{ "id": 2, "name": "..." },
-			{ "id": 3, "name": "..." }
-		]
+		"service": {
+			"id": 1,
+			"name": "...",
+			"description": "..."
+		}
 	}
 
 open311.services.getList
@@ -217,6 +209,39 @@ Returns a list of services for which incidents may be reported. The types of ser
 			{ "id": 1, "name": "..." },
 			{ "id": 2, "name": "..." },
 			{ "id": 3, "name": "..." }
+		]
+	}
+
+open311.where
+==
+
+open311.where.getList
+--
+
+Returns a list of geographic prefixes that may be used to query for incident reports using the 'open311.incidents.search' API method.
+
+**Method**
+
+[GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+
+**Parameters**
+
+* **page** - The page of results to return. If this argument is omitted, it defaults to 1.
+* **per_page** - Number of results to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is left to the discretion of individual cities.
+* **format** - The encoding format for results. If this argument is omitted, it defaults to JSON
+
+**Example**
+
+	GET http://example.gov/open311-simple/?method=open311.where.getList
+
+	{
+		"total": 3,
+		"per_page": 100,
+		"page": 1,
+		"services": [
+			{ "prefix": "bbox", "description": "...", "example": "bbox:37.788,-122.344,37.857,-122.256" },
+			{ "prefix": "near", "description": "...", "example": "near:37.804376,-122.271180" },
+			{ "prefix": "zip", "description": "...", "example": "zip:94110" }
 		]
 	}
 
