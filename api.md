@@ -13,7 +13,7 @@ The API method specification is defined as a JSON data structure containing basi
 
 Developers are still required to implement their own dispatching system in order to serve and process those API methods. The modeling of the API specification in JSON is simply meant as a language-agnostic configuration file that can be easily shared across programming languages (since they basically all have JSON decoders to translate the data in to native data structures).
 
-API methods are defined in [api-methods.json](https://github.com/straup/open311-simple/blob/master/api-methods.json) document.
+API methods are defined in [api-methods.json](https://github.com/straup/open311-simple/blob/master/api-methods.json) document. The [api-methods.md](https://github.com/straup/open311-simple/blob/master/api-methods.md) document contains human-friendly documentation for the API.
 
 Transport
 ==
