@@ -29,23 +29,26 @@ if __name__ == '__main__':
 
     out.write("_This file is auto-generated using the [api-methods.json](https://github.com/straup/open311-simple/blob/master/api-methods.json) specification and the [mk-api-docs](https://github.com/straup/open311-simple/blob/master/bin/mk-api-docs.py) program and compliments the [general API notes](https://github.com/straup/open311-simple/blob/master/api.md)_.\n\n")
 
-    for m in data['methods']:
+    # TO DO: do a first pass and bundle methods by "class"
+    # and then sort alphabetically
 
-        if not m['enabled']:
-            logging.info("the '%s' method is disabled, skipping" % m['name'])
+    for method, details in data['methods'].items():
+
+        if not details['enabled']:
+            logging.info("the '%s' method is disabled, skipping" % method)
             continue
 
-        if not m['documented']:
-            logging.info("the '%s' method is enabled but undocumented, skipping" % m['name'])
+        if not details['documented']:
+            logging.info("the '%s' method is enabled but undocumented, skipping" % method)
             continue
 
-        out.write("%s\n" % m['name'])
+        out.write("%s\n" % method)
         out.write("--\n\n")
 
-        if m['requires_auth']:
+        if details['requires_auth']:
             out.write("**This method requires authentication**\n\n")
 
-        out.write("%s\n\n" % m['description'])
+        out.write("%s\n\n" % details['description'])
 
         """
         method (HTTP)
@@ -53,7 +56,7 @@ if __name__ == '__main__':
 
         out.write("**Method**\n\n")
         
-        out.write("[%s](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)\n\n" % (m['method']))
+        out.write("[%s](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)\n\n" % (details['method']))
 
         """
         method parameters
@@ -61,9 +64,9 @@ if __name__ == '__main__':
 
         out.write("**Parameters**\n\n")
 
-        if m.get('parameters', False):
+        if details.get('parameters', False):
         
-            for p in m['parameters']:
+            for p in details['parameters']:
 
                 # guh...
                 name = p['name'].replace("_", "\_")
@@ -76,7 +79,7 @@ if __name__ == '__main__':
 
                 out.write("\n")
 
-        if m.get('paginated', False):
+        if details.get('paginated', False):
 
             out.write("* **page** - The page of results to return. If this argument is omitted, it defaults to 1.\n")
             out.write("* **per_page** - Number of results to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is left to the discretion of individual cities.\n")
@@ -88,11 +91,11 @@ if __name__ == '__main__':
         method notes
         """
 
-        if m.get('notes', False):
+        if details.get('notes', False):
 
             out.write("**Notes**\n\n")
             
-            for n in m['notes']:
+            for n in details['notes']:
                 out.write("* %s\n\n" % n)
 
         """
@@ -101,15 +104,17 @@ if __name__ == '__main__':
 
         out.write("**Example**\n\n")
 
-        out.write("\t%s http://example.gov/open311-simple/?method=%s\n\n" % (m['method'], m['name']))
+        out.write("\t%s http://example.gov/open311-simple/?method=%s\n\n" % (details['method'], method))
 
-        rsp = os.path.join(examples, "%s.json" % m['name'])
+        rsp = os.path.join(examples, "%s.json" % method)
 
         if os.path.exists(rsp):
 
             fh = open(rsp, 'r')
             for ln in fh.readlines():
                 out.write("\t%s" % ln)
+
+            out.write("\n")
 
     md = out.getvalue()
 
