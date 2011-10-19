@@ -91,11 +91,6 @@ to encourage innovations no one even considered at the outset.
 _TBD: Whether or not the “k=” and “v=” is used preserve the separation of subject and
 value in two separate fields that can be indexed and searched independently._
 
-Tags (and namespaces)
---
-
-TBW
-
 Dates
 ==
 
