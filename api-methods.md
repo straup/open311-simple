@@ -39,36 +39,6 @@ open311.incidents.getInfo
 		}
 	}
 
-open311.incidents.getStatuses
---
-
-Return a list of valid statuses. The types of statuses and their meaning are left to the discretion of individual cities.
-
-**Method**
-
-[GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
-
-**Parameters**
-
-* **page** - The page of results to return. If this argument is omitted, it defaults to 1.
-* **per_page** - Number of results to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is left to the discretion of individual cities.
-* **format** - The encoding format for results. If this argument is omitted, it defaults to JSON
-
-**Example**
-
-	GET http://example.gov/open311-simple/?method=open311.incidents.getStatuses
-
-	{
-		"total": 3,
-		"per_page": 100,
-		"page": 1,
-		"statuses": [
-			{ "id": 1, "name": "open" },
-			{ "id": 2, "name": "pending" },
-			{ "id": 3, "name": "closed" }
-		]
-	}
-
 open311.incidents.report
 --
 
@@ -210,6 +180,28 @@ Returns a list of services for which incidents may be reported. The types of ser
 			{ "id": 3, "name": "..." }
 		]
 	}
+
+open311.statuses
+==
+
+open311.statuses.getList
+--
+
+Return a list of valid statuses for incidents. The types of statuses and their meaning are left to the discretion of individual cities.
+
+**Method**
+
+[GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+
+**Parameters**
+
+* **page** - The page of results to return. If this argument is omitted, it defaults to 1.
+* **per_page** - Number of results to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is left to the discretion of individual cities.
+* **format** - The encoding format for results. If this argument is omitted, it defaults to JSON
+
+**Example**
+
+	GET http://example.gov/open311-simple/?method=open311.statuses.getList
 
 open311.where
 ==

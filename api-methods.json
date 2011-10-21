@@ -30,8 +30,8 @@
 			"example" : "file://./api-methods-examples/open311.services.getInfo.json"
 		},
 
-		"open311.incidents.getStatuses": {
-			"description": "Return a list of valid statuses. The types of statuses and their meaning are left to the discretion of individual cities.",
+		"open311.statuses.getList": {
+			"description": "Return a list of valid statuses for incidents. The types of statuses and their meaning are left to the discretion of individual cities.",
 			"enabled": 1,
 			"documented": 1,
 			"paginated": 1,
