@@ -32,6 +32,17 @@ The default API response format is [JSON](http://www.json.org/).
 Additional responses are left to the discretion of individual cities and are identified in API requested with the
 _format_ parameter.
 
+(U)IDs
+==
+
+The Open311 Simple specification is agnostic about whether or not unique identifiers (UID) should be strings or integers. This is left to the discretion of individual cities and the requirements of their technical infrastructure.
+
+Out of necessity, though, _client applications_ may need to treat every UID as a string in order to provide consistent access (read: local database storage) multiple cities.
+
+The example responses included with the specification assume integer based UIDs.
+
+See also: [Open311 Simple Issues #1](https://github.com/straup/open311-simple/issues/1)
+
 Pagination
 ==
 
