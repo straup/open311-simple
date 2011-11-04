@@ -63,7 +63,7 @@
 			"description": "Add an additional note to an incident report.",
 			"enabled": 1,
 			"documented": 1,
-			"requires_auth": 0,
+			"requires_auth": 1,
 			"method": "POST",
 			"parameters": [
 				{ "name": "incident_id", "description": "The unique ID of the incident to add a note for.", "required": 1 },

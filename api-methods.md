@@ -9,6 +9,8 @@ open311.incidents
 open311.incidents.addNote
 --
 
+**This method requires authentication**
+
 Add an additional note to an incident report.
 
 **Method**
