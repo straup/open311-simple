@@ -58,9 +58,25 @@
 			],
 			"example" : "file://./api-methods-examples/open311.incidents.report.json"
 		},
+
+		"open311.incidents.addNote": {
+			"description": "Add an additional note to an incident report.",
+			"enabled": 1,
+			"documented": 1,
+			"requires_auth": 0,
+			"method": "POST",
+			"parameters": [
+				{ "name": "incident_id", "description": "The unique ID of the incident to add a note for.", "required": 1 },
+				{ "name": "note", "description": "The body of the note to add to the incident report.", "required": 1 },
+				{ "name": "public", "description": "Whether or not the note is publicly viewable. Default is false..", "required": 0 }
+			],
+			"notes": [
+			],
+			"example" : "file://./api-methods-examples/open311.incidents.addNote"
+		},
 		
 		"open311.incidents.getInfo": {
-			"description": "",
+			"description": "Get the detailed information for an incident report.",
 			"enabled": 1,
 			"documented": 1,
 			"requires_auth": 0,

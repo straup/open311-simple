@@ -6,10 +6,30 @@ _This file is auto-generated using the [api-methods.json](https://github.com/str
 open311.incidents
 ==
 
+open311.incidents.addNote
+--
+
+Add an additional note to an incident report.
+
+**Method**
+
+[POST](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+
+**Parameters**
+
+* **incident\_id** - The unique ID of the incident to add a note for. - _Required_
+* **note** - The body of the note to add to the incident report. - _Required_
+* **public** - Whether or not the note is publicly viewable. Default is false..
+* **format** - The encoding format for results. If this argument is omitted, it defaults to JSON
+
+**Example**
+
+	POST http://example.gov/open311-simple/?method=open311.incidents.addNote
+
 open311.incidents.getInfo
 --
 
-
+Get the detailed information for an incident report.
 
 **Method**
 
