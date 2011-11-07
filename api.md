@@ -43,6 +43,11 @@ The example responses included with the specification assume integer based UIDs.
 
 See also: [Open311 Simple Issues #1](https://github.com/straup/open311-simple/issues/1)
 
+Character encoding
+==
+
+UTF-8.
+
 Pagination
 ==
 
