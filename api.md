@@ -29,8 +29,7 @@ Response formats
 
 The default API response format is [JSON](http://www.json.org/).
 
-Additional responses are left to the discretion of individual cities and are identified in API requested with the
-_format_ parameter.
+Additional responses are left to the discretion of individual cities and are identified in API request using the _format_ parameter.
 
 (U)IDs
 ==
